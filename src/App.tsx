@@ -19,6 +19,8 @@ function App() {
       {/*    Learn React*/}
       {/*  </a>*/}
       {/*</header>*/}
+      <div>Welcome to Rezzipeas a online website built for nutritional tooling.</div>
+      <div>Hello Pri, you are my first tester/vistor. Please enter a a single ingredient. Example '100g chicken' and click analyse to test it out.</div>
       <Home /> {/* Displaying the Home component */}
     </div>
   );
