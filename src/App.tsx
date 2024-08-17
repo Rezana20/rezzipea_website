@@ -23,9 +23,9 @@ const theme = createTheme({
             primary: '#1D3557',  // Dark Blue (for strong text)
             secondary: '#F4A261',  // Warm Terracotta (or adjust this to a lighter shade if needed)
         },
-        accent: {
-            main: '#E63946',  // Coral Red (for additional vibrancy)
-        },
+        // accent: {
+        //     main: '#E63946',  // Coral Red (for additional vibrancy)
+        // },
     },
     typography: {
         fontFamily: 'Roboto, Arial, sans-serif',
