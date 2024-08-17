@@ -1,6 +1,37 @@
 import React from 'react';
 import './App.css';
 import Home from "./pages/Home";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Navbar from "./components/AppNavBar";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import './assets/styles/Quote.css';
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#1D3557',  // Dark Blue (Deep Mediterranean Sea)
+        },
+        secondary: {
+            main: '#FFD166',  // Bright Yellow (Sunshine)
+        },
+        background: {
+            default: '#FFFFFF',  // Sunlit Cream
+            paper: '#FFFFFF',  // Classic White
+        },
+        text: {
+            primary: '#1D3557',  // Dark Blue (for strong text)
+            secondary: '#F4A261',  // Warm Terracotta (or adjust this to a lighter shade if needed)
+        },
+        accent: {
+            main: '#E63946',  // Coral Red (for additional vibrancy)
+        },
+    },
+    typography: {
+        fontFamily: 'Roboto, Arial, sans-serif',
+    },
+});
+
 
 function App() {
   return (
@@ -19,9 +50,28 @@ function App() {
       {/*    Learn React*/}
       {/*  </a>*/}
       {/*</header>*/}
-      <div>Welcome to Rezzipeas a online website built for nutritional tooling.</div>
-      <div>Hello Pri, you are my first tester/vistor. Please enter a a single ingredient. Example '100g chicken' and click analyse to test it out.</div>
-      <Home /> {/* Displaying the Home component */}
+
+            <ThemeProvider theme={theme}>
+            <CssBaseline />
+                <BrowserRouter>
+                    <Navbar/>
+                    <div className="upper-banner">
+                        <div className="quote-section">
+                        <blockquote className="quote-text">
+                            "Healthy bodies are nurtured in the kitchen, one meal at a time"
+                        </blockquote>
+                        </div>
+                    </div>
+                    <div style={{padding: '20px'}}>
+                        <Routes>
+                            <Route path="/" element={<Home/>}/>
+                            <Route path="/about" element={<Home/>}/>
+                        </Routes>
+                    </div>
+                </BrowserRouter>
+            </ThemeProvider>
+
+
     </div>
   );
 }

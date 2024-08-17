@@ -4,7 +4,8 @@
     import '../assets/styles/Home.css';
     import {Stack} from "@mui/material";
     import NutritionalAPI from "../services/NutritionalAPI";
-    import AppNutritionalBox from "../components/AppNutritionalBox"; // Import the CSS file
+    import AppNutritionalBox from "../components/AppNutritionalBox";
+    import AppBanner from "../components/AppBanner"; // Import the CSS file
 
     function Home() {
         const [text, setText] = useState("");
@@ -40,34 +41,40 @@
 
         useEffect(() => {
             if (isPopupVisible && popupRef.current) {
-                popupRef.current.scrollIntoView({ behavior: 'smooth' });
+                if ("scrollIntoView" in popupRef.current) {
+                    popupRef.current.scrollIntoView({behavior: 'smooth'});
+                }
             }
         }, [isPopupVisible]);
 
         return (
+            <div>
+                {/*<AppBanner/>*/}
+
             <div className="container">
-                <div className={`content ${isPopupVisible ? 'half-width' : 'full-width'}`}>
-                    <AppTextAreaBox
-                        value={text}
-                        onChange={handleTextChange}
+            <div className={`content ${isPopupVisible ? 'half-width' : 'full-width'}`}>
+                <AppTextAreaBox
+                    value={text}
+                    onChange={handleTextChange}
                         placeholder="Enter in your ingredients in the format 'qty unit ingredient,' per line"
                         readOnly={isPopupVisible}
                         rows={10} // Adjust rows as needed
                         cols={50} // Adjust cols as needed
                     />
-                    {!isPopupVisible  && ( // Conditionally render the Analyse button
-                        <AppButton label="ANALYSE" onClick={onAnalyseButtonClick} />
+                    {!isPopupVisible && (
+                        <AppButton label="ANALYSE" onClick={onAnalyseButtonClick}/>
                     )}
                 </div>
                 {isPopupVisible && (
-                    <div className="popup" ref={popupRef}>
+                    <div className="content half-width" ref={popupRef}>
                         <AppNutritionalBox data={singleIngredientData}/>
                         <Stack spacing={2} direction="row">
-                        <AppButton onClick={closePopup} label="UPDATE"></AppButton>
-                        <AppButton onClick={newRecipe} label="CLEAR"></AppButton>
+                            <AppButton onClick={closePopup} label="UPDATE"/>
+                            <AppButton onClick={newRecipe} label="CLEAR"/>
                         </Stack>
                     </div>
                 )}
+            </div>
             </div>
         );
     }

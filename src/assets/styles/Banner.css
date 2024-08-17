@@ -1,0 +1,70 @@
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    background: linear-gradient(135deg, #9CAF88, #D4AF37, #FF6F61, #FFFFFF); /* Gradient transitioning into white */
+    text-align: center;
+    color: #FAFAFA;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    width: 100vw; /* Full width of the viewport */
+    margin: 0; /* Ensure no margins */
+}
+
+.banner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin: 0;
+    color: #333333; /* Charcoal for text contrast */
+}
+
+.banner p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #FAFAFA; /* Soft white for subtext */
+}
+
+.banner .cta-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #87CEEB; /* Soft Sky Blue for the button */
+    color: #333333;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.banner .cta-button:hover {
+    background-color: #FF6F61; /* Coral for a vibrant hover effect */
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: #FDF5E6; /* Warm Ivory accent in the background */
+    border-radius: 50%;
+    opacity: 0.2;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: #87CEEB; /* Soft Sky Blue accent in the background */
+    border-radius: 50%;
+    opacity: 0.3;
+}
