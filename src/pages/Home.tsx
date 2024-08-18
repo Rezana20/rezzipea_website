@@ -5,7 +5,7 @@
     import {Stack} from "@mui/material";
     import NutritionalAPI from "../services/NutritionalAPI";
     import AppNutritionalBox from "../components/AppNutritionalBox";
-    import AppBanner from "../components/AppBanner"; // Import the CSS file
+    import FoodCommunity from "../components/AppFoodCommunity"; // Import the CSS file
 
     function Home() {
         const [text, setText] = useState("");
@@ -49,7 +49,7 @@
 
         return (
             <div>
-                {/*<AppBanner/>*/}
+                <FoodCommunity />
 
             <div className="container">
             <div className={`content ${isPopupVisible ? 'half-width' : 'full-width'}`}>
