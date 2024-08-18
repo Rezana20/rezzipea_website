@@ -1,0 +1,20 @@
+.footer {
+    background-color: #1D3557; /* Dark Blue background */
+    color: #FFFFFF; /* White text */
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer a {
+    color: #FFD166; /* Highlight color for the link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    color: #F4A261; /* Change color on hover */
+    text-decoration: underline;
+}

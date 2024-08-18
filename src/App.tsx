@@ -6,7 +6,7 @@ import Navbar from "./components/AppNavBar";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import './assets/styles/Quote.css';
-
+import './assets/styles/Footer.css';
 const theme = createTheme({
     palette: {
         primary: {
@@ -51,25 +51,30 @@ function App() {
       {/*  </a>*/}
       {/*</header>*/}
 
-            <ThemeProvider theme={theme}>
-            <CssBaseline />
-                <BrowserRouter>
-                    <Navbar/>
-                    <div className="upper-banner">
-                        <div className="quote-section">
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            <BrowserRouter>
+                <Navbar/>
+                <div className="upper-banner">
+                    <div className="quote-section">
                         <blockquote className="quote-text">
                             "Healthy bodies are nurtured in the kitchen, one meal at a time"
                         </blockquote>
-                        </div>
                     </div>
-                    <div style={{padding: '20px'}}>
-                        <Routes>
-                            <Route path="/" element={<Home/>}/>
-                            <Route path="/about" element={<Home/>}/>
-                        </Routes>
-                    </div>
-                </BrowserRouter>
-            </ThemeProvider>
+                </div>
+                <div style={{padding: '20px'}}>
+                    <Routes>
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/about" element={<Home/>}/>
+                    </Routes>
+                </div>
+            </BrowserRouter>
+            <footer className="footer">
+                <p>Connect with us on <a href="https://www.instagram.com/rezzipeas/" target="_blank"
+                                         rel="noopener noreferrer">Instagram</a></p>
+            </footer>
+
+        </ThemeProvider>
 
 
     </div>
