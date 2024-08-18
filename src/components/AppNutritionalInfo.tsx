@@ -77,7 +77,7 @@ import '../assets/styles/NutrionalInfo.css'
                                 <div className="nutritional-parent">
                                    <AppNutritionalBox data={singleIngredientData}/>
                                 </div>
-                                <div className="content" sx={{alignItems: "center"}}>
+                                <div className="content">
                                 <Stack spacing={2} direction="row" >
                                     <AppButton onClick={closePopup} label="UPDATE"/>
                                     <AppButton onClick={newRecipe} label="CLEAR"/>
