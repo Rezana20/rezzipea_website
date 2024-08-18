@@ -1,4 +1,4 @@
-import React from 'react';
+
 class NutritionalAPI {
 
     async fetchIndividualNutritionalInfo(ingr: string): Promise<any> {

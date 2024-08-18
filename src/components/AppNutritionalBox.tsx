@@ -1,4 +1,5 @@
 import React from "react";
+import '../assets/styles/NutrionalInfo.css'
 
 interface Nutrient {
     label: string;
@@ -14,13 +15,17 @@ function AppNutritionalBox({ data }: NutritionalBoxProps): React.JSX.Element {
     const nutrients: { [key: string]: Nutrient } = data.totalNutrientsKCal;
 
     return(
-         <div>
+        <div>
+            <div className="nutritional-info-container">
+                <h1 className="nutritional-info-heading">Nutritional Information</h1>
+            </div>
             {Object.keys(nutrients).map((key) => {
                 const nutrient = nutrients[key];
                 return (
-                    <p key={key}>
-                        {nutrient.label} | {nutrient.quantity} {nutrient.unit}
-                    </p>
+                    <div key={key} className="nutrient-info">
+                        <span className="nutrient-label">{nutrient.label}</span>
+                        <span className="nutrient-quantity">{nutrient.quantity} {nutrient.unit}</span>
+                    </div>
                 );
             })}
         </div>

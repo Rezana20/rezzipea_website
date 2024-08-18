@@ -1,5 +1,7 @@
 import React from "react";
 import { Button} from '@mui/material';
+import '../assets/styles/Button.css'
+import '../assets/styles/Home.css'
 
 interface AppButtonProps {
     label: string;
@@ -8,7 +10,10 @@ interface AppButtonProps {
 
 function AppButton({label, onClick}: AppButtonProps) {
     return(
-        <Button onClick={onClick}>{label}</Button>
+        <div className="app-button">
+            <Button sx={{ color:'#FFFFFF' }} onClick={onClick}>{label}</Button>
+        </div>
+
     )
 }
 

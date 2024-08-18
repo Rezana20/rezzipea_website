@@ -16,7 +16,7 @@ const theme = createTheme({
             main: '#FFD166',  // Bright Yellow (Sunshine)
         },
         background: {
-            default: '#FFFFFF',  // Sunlit Cream
+            default: '#FFFFFF',  // Classic White
             paper: '#FFFFFF',  // Classic White
         },
         text: {

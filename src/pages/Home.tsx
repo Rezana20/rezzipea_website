@@ -1,82 +1,16 @@
-    import React, { useState, useRef, useEffect } from "react";
-    import AppTextAreaBox from "../components/AppTextAreaBox";
-    import AppButton from "../components/AppButton";
-    import '../assets/styles/Home.css';
-    import {Stack} from "@mui/material";
-    import NutritionalAPI from "../services/NutritionalAPI";
-    import AppNutritionalBox from "../components/AppNutritionalBox";
-    import FoodCommunity from "../components/AppFoodCommunity"; // Import the CSS file
+import React from "react";
+import '../assets/styles/Home.css';
+import AppNutritionalInfo from "../components/AppNutritionalInfo";
+import FoodCommunity from "../components/AppFoodCommunity";
 
-    function Home() {
-        const [text, setText] = useState("");
-        const [isPopupVisible, setPopupVisible] = useState(false);
-        const popupRef = useRef<HTMLDivElement | null>(null);
-        const [singleIngredientData, setSingleIngredientDataData] = useState<any>(null);
-
-        const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-            setText(event.target.value);
-        };
-
-        const onAnalyseButtonClick = async () => {
-            try {
-                const api = new NutritionalAPI()
-                const result = await api.fetchIndividualNutritionalInfo(text);
-                setSingleIngredientDataData(result)
-                setPopupVisible(true);
-                console.log(result.totalNutrientsKCal)
-                console.log(result)
-            } catch (error) {
-                console.error('Error fetching nutrition data:', error);
-            }
-        };
-
-        const closePopup = (): void => {
-            setPopupVisible(false);
-        };
-
-        const newRecipe = (): void => {
-            setText("");
-            setPopupVisible(false);
-        };
-
-        useEffect(() => {
-            if (isPopupVisible && popupRef.current) {
-                if ("scrollIntoView" in popupRef.current) {
-                    popupRef.current.scrollIntoView({behavior: 'smooth'});
-                }
-            }
-        }, [isPopupVisible]);
+const Home = () => {
 
         return (
             <div>
                 <FoodCommunity />
-
-            <div className="container">
-            <div className={`content ${isPopupVisible ? 'half-width' : 'full-width'}`}>
-                <AppTextAreaBox
-                    value={text}
-                    onChange={handleTextChange}
-                        placeholder="Enter in your ingredients in the format 'qty unit ingredient,' per line"
-                        readOnly={isPopupVisible}
-                        rows={10} // Adjust rows as needed
-                        cols={50} // Adjust cols as needed
-                    />
-                    {!isPopupVisible && (
-                        <AppButton label="ANALYSE" onClick={onAnalyseButtonClick}/>
-                    )}
-                </div>
-                {isPopupVisible && (
-                    <div className="content half-width" ref={popupRef}>
-                        <AppNutritionalBox data={singleIngredientData}/>
-                        <Stack spacing={2} direction="row">
-                            <AppButton onClick={closePopup} label="UPDATE"/>
-                            <AppButton onClick={newRecipe} label="CLEAR"/>
-                        </Stack>
-                    </div>
-                )}
-            </div>
+                <AppNutritionalInfo />
             </div>
         );
-    }
+};
 
-    export default Home;
+export default Home;

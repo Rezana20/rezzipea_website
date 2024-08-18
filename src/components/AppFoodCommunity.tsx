@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/styles/FoodCommunity.css';
-const FoodCommunity = () => {
+const AppFoodCommunity = () => {
     return (
         <div className="food-community">
             <h2 className="food-community-title">Welcome to Our Food Community</h2>
@@ -11,4 +11,4 @@ const FoodCommunity = () => {
     );
 };
 
-export default FoodCommunity;
+export default AppFoodCommunity;
