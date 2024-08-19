@@ -59,7 +59,7 @@ import '../assets/styles/NutrionalInfo.css'
                         <AppTextAreaBox
                             value={text}
                             onChange={handleTextChange}
-                            placeholder="Enter in your ingredients in the format 'qty unit ingredient,' per line"
+
                             readOnly={isPopupVisible}
                             rows={10} // Adjust rows as needed
                             cols={50} // Adjust cols as needed

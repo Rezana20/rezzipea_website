@@ -3,12 +3,12 @@ import { Button} from '@mui/material';
 import '../assets/styles/Quote.css'
 
 
-interface AppButtonProps {
+interface AppTryButtonProps {
     label: string;
-    onClick: (event: React.MouseEvent) => void;
+    onClick?: (event: React.MouseEvent) => void;
 }
 
-function AppTryButton({label, onClick}: AppButtonProps) {
+function AppTryButton({label, onClick}: AppTryButtonProps) {
     return(
         <div className="try-button">
             <Button sx={{ color:'#FFFFFF' }} onClick={onClick}>{label}</Button>
