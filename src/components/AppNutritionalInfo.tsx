@@ -50,9 +50,7 @@ import '../assets/styles/NutrionalInfo.css'
             <div className="nutritional-info">
 
                 <div className="container">
-                    <p>Try evaluating your recipe, Enter an ingredient list for what you are cooking,
-                        like "1 cup rice, 100g chickpeas", etc.
-                        Enter each ingredient on a new line.</p>
+                    <p>Ready to evaluate your recipe? Just type in your ingredients, like '1 cup rice, 100g chickpeas.' Make sure to list each one on a separate line.</p>
                 </div>
                 <div className="container">
                     <div className={`content ${isPopupVisible ? 'half-width' : 'full-width'}`}>
