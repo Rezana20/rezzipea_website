@@ -60,7 +60,8 @@ import '../assets/styles/NutrionalInfo.css'
 
                             readOnly={isPopupVisible}
                             rows={10} // Adjust rows as needed
-                            cols={50} // Adjust cols as needed
+                            cols={30}
+
                         />
                         <Stack sx={{alignItems: "center"}}>
                            {!isPopupVisible && (

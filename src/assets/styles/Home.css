@@ -9,8 +9,9 @@
     opacity: 0.9; /* Adjust opacity for subtlety */
     overflow: hidden;
 }
+
 .container {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
     padding: 5px;
     box-sizing: border-box;
@@ -48,7 +49,7 @@
 /* Media query for larger screens (e.g., laptops) */
 @media (min-width: 768px) {
     .half-width {
-        width: 48%; /* Adjust width as needed to fit your design */
+        width: 45%; /* Adjust width as needed to fit your design */
     }
 
     .full-width {
