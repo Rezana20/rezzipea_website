@@ -1,0 +1,80 @@
+.community {
+    max-width: 800px;
+    /*margin: 40px auto;*/
+    padding: 20px;
+    background-color: #F9F9F9; /* Light background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center;
+    height: auto;
+    margin: 40px auto;
+    margin-bottom: 80px; /* Adjust based on the footer's height */
+
+}
+
+.community-title {
+    font-size: 1.6em;
+    color: #1D3557; /* Dark Blue for the title */
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+}
+
+.paragraph {
+    font-size: 1em;
+    color: #333; /* Darker gray for readability */
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    padding: 10px 20px;
+}
+
+.community-image {
+    width: 200px; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Slightly rounded corners, or use 0 for sharp corners */
+    margin-top: 10px; /* Add some space above the image */
+}
+
+
+.instagram-snippet {
+    margin-top: 20px; /* Adds space above the Instagram embed */
+    text-align: center; /* Centers the Instagram post */
+}
+
+.instagram-media {
+    background: #FFF;
+    border: 0;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 10px 0 rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 540px;
+    min-width: 326px;
+}
+
+.instagram-content {
+    padding: 16px;
+}
+
+.instagram-link {
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: 18px;
+    text-decoration: none;
+}
+
+
+@media (max-width: 600px) {
+    .community {
+        flex-direction: column; /* Stack items vertically on small screens */
+        text-align: center; /* Center text on small screens */
+    }
+
+    .community-image {
+        margin-right: 0;
+        margin-bottom: 20px; /* Add space below the image */
+    }
+}

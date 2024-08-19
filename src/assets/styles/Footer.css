@@ -2,10 +2,11 @@
     background-color: #1D3557; /* Dark Blue background */
     color: #FFFFFF; /* White text */
     text-align: center;
-    padding: 20px 0;
     position: fixed;
     width: 100%;
     bottom: 0;
+    margin-top: auto; /* Push the footer to the bottom of the page */
+
 }
 
 .footer a {

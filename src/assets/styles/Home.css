@@ -17,6 +17,7 @@
     box-sizing: border-box;
     justify-content: center; /* Center align the content */
     align-items: center; /* Center align the content vertically */
+    height: auto;
 }
 
 .content {
@@ -25,6 +26,7 @@
     margin: 10px;
     flex: 1;
     max-width: 500px; /* Limit the maximum width */
+    height: auto;
 }
 
 .full-width {

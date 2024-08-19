@@ -7,9 +7,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import './assets/styles/Quote.css';
 import './assets/styles/Footer.css';
-import AppButton from "./components/AppButton";
-import {Stack} from "@mui/material";
-import AppTryButton from "./components/AppTryButton";
+import About from "./pages/About";
 const theme = createTheme({
     palette: {
         primary: {
@@ -40,24 +38,11 @@ function App() {
             <CssBaseline/>
             <BrowserRouter>
                 <Navbar/>
-                <div className="upper-banner">
-                    <div className="quote-section">
-                        <blockquote className="quote-text">
-                            "Healthy bodies are nurtured in the kitchen, one meal at a time"
-                        </blockquote>
-                    </div>
-                    <div className="container">
-                        <Stack>
-                            <a href="#evaluation-tool-section" style={{textDecoration: 'none'}}>
-                                <AppTryButton label="Try out our nutritional evaluation tool"/>
-                            </a>
-                        </Stack>
-                    </div>
-                </div>
-                <div style={{padding: '20px'}}>
+
+                <div>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/about" element={<Home/>}/>
+                        <Route path="/about" element={<About/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>

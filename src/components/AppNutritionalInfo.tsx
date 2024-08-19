@@ -41,7 +41,7 @@ import { Snackbar, Alert } from '@mui/material';
 
                 // If no valid ingredients are found, block the operation
                 if (ingredientsArray.length === 0) {
-                    setSnackbarMessage('Please enter some valid ingredients before analyzing.');
+                    setSnackbarMessage('Please enter some valid ingredients before analysing.');
                     setOpenSnackbar(true);
                     return; // Exit the function early
                 }
@@ -59,10 +59,10 @@ import { Snackbar, Alert } from '@mui/material';
             setPopupVisible(false);
         };
 
-        const newRecipe = (): void => {
-            setText("");
-            setPopupVisible(false);
-        };
+        // const newRecipe = (): void => {
+        //     setText("");
+        //     setPopupVisible(false);
+        // };
 
         useEffect(() => {
             if (isPopupVisible && popupRef.current) {
@@ -74,6 +74,15 @@ import { Snackbar, Alert } from '@mui/material';
 
         return (
             <div className="nutritional-info">
+                <Snackbar
+                    open={openSnackbar}
+                    autoHideDuration={6000}
+                    onClose={handleSnackbarClose}
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+                    <Alert onClose={handleSnackbarClose} severity="warning" sx={{ width: '100%' }}>
+                        {snackbarMessage}
+                    </Alert>
+                </Snackbar>
 
                 <div className="container">
                     <p>Ready to evaluate your recipe? Just type in your ingredients, like '1 cup rice, 100g chickpeas.' Make sure to list each one on a separate line.</p>
