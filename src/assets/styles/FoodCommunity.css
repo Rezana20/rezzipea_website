@@ -9,14 +9,14 @@
 }
 
 .food-community-title {
-    font-size: 2em;
+    font-size: 1.6em;
     color: #1D3557; /* Dark Blue for the title */
     margin-bottom: 20px;
     font-family: 'Georgia', serif;
 }
 
-.food-community-paragraph {
-    font-size: 1.2em;
+.paragraph {
+    font-size: 1em;
     color: #333; /* Darker gray for readability */
     line-height: 1.6;
     font-family: 'Arial', sans-serif;

@@ -30,6 +30,31 @@
     text-align: right;
 }
 
+.try-button {
+    background-color: #4b6c30; /* Sunlight Yellow background */
+    color: #FFFFFF !important; /* Mediterranean Blue text color */
+    text-align: center; /* Center align text */
+    justify-content: center; /* Center align the content inside the button */
+    padding: 5px 10px;
+    border-radius: 8px; /* Slightly rounded corners */
+    border: 2px solid #4b6c30; /* Mediterranean Blue border */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    width: fit-content;
+    display: inline-flex; /* Ensures correct alignment */
+    align-items: center; /* Vertically center content */
+    bottom: 100px; /* Position the button at the bottom, adjust as needed */
+    left: 50%;
+    transform: translateX(-50%); /* Center the button horizontally */
+    /*display: flex;*/
+    position: absolute;
+}
+
+.try-button:hover {
+    background-color: #FFD166; /* Mediterranean Blue background on hover */
+    color: #FFFFFF !important; /* White text color */
+    border-color: #FFD166; /* Change border to sunlight yellow on hover */
+}
+
 @media (max-width: 768px) {
     .quote-text {
         font-size: 1.5em; /* Smaller font size on smaller devices */

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <AppBar position="static">
+        <AppBar position="sticky">
             <Toolbar>
                 <Button color="inherit" component={Link} to="/">
                     Rezzipeas
