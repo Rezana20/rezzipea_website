@@ -26,9 +26,6 @@ const theme = createTheme({
             primary: '#1D3557',  // Dark Blue (for strong text)
             secondary: '#F4A261',  // Warm Terracotta (or adjust this to a lighter shade if needed)
         },
-        // accent: {
-        //     main: '#E63946',  // Coral Red (for additional vibrancy)
-        // },
     },
     typography: {
         fontFamily: 'Roboto, Arial, sans-serif',
@@ -39,21 +36,6 @@ const theme = createTheme({
 function App() {
   return (
     <div className="App">
-      {/*<header className="App-header">*/}
-      {/*  <img src={logo} className="App-logo" alt="logo" />*/}
-      {/*  <p>*/}
-      {/*    Edit <code>src/App.tsx</code> and save to reload.*/}
-      {/*  </p>*/}
-      {/*  <a*/}
-      {/*    className="App-link"*/}
-      {/*    href="https://reactjs.org"*/}
-      {/*    target="_blank"*/}
-      {/*    rel="noopener noreferrer"*/}
-      {/*  >*/}
-      {/*    Learn React*/}
-      {/*  </a>*/}
-      {/*</header>*/}
-
         <ThemeProvider theme={theme}>
             <CssBaseline/>
             <BrowserRouter>
