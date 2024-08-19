@@ -8,18 +8,29 @@
     text-align: center;
 }
 
+.nutritional-parent {
+    padding-bottom: 10px;
+}
+
+.approximation-guidelines {
+    font-size: 0.5em; /* Smaller font size (you can adjust as needed) */
+    text-align: left; /* Ensure the text is left-aligned */
+    font-style: italic; /* Italicize the text */
+    margin: 0; /* Remove default margin, if necessary */
+    color: #555; /* Optional: use a muted color for the text */
+}
+
+
 .nutritional-info-container {
     width: 100%; /* Make sure the container takes full width */
-    text-align: center; /* Center the text */
+    text-align: left; /* Center the text */
     /*padding: 20px 0; !* Optional padding *!*/
 }
 
 .nutritional-info-heading {
     position: relative;
-    display: inline-block; /* Ensure the underline stays with the text */
     font-size: 2em; /* Adjust font size as needed */
     margin: 0;
-    padding-bottom: 10px; /* Space between the text and the underline */
 }
 
 .nutritional-info-heading::after {

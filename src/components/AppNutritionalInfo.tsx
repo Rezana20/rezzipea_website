@@ -72,18 +72,16 @@ import '../assets/styles/NutrionalInfo.css'
                     </div>
 
                     {isPopupVisible && (
-                        <div className="container">
                             <div className="content half-width" ref={popupRef}>
                                 <div className="nutritional-parent">
                                    <AppNutritionalBox data={singleIngredientData}/>
+                                    <p className="approximation-guidelines"> *Approximation guidelines</p>
                                 </div>
-                                <div className="content">
-                                <Stack spacing={2} direction="row" >
+
+                                <Stack sx={{alignItems: "center"}} >
                                     <AppButton onClick={closePopup} label="UPDATE"/>
-                                    <AppButton onClick={newRecipe} label="CLEAR"/>
+                                    {/*<AppButton onClick={newRecipe} label="CLEAR"/>*/}
                                 </Stack>
-                                 </div>
-                            </div>
                         </div>
                     )}
                 </div>
