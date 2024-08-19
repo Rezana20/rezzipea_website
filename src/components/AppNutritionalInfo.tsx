@@ -6,20 +6,46 @@ import {Stack} from "@mui/material";
 import NutritionalAPI from "../services/NutritionalAPI";
 import AppNutritionalBox from "../components/AppNutritionalBox";
 import '../assets/styles/NutrionalInfo.css'
+import { Snackbar, Alert } from '@mui/material';
    const AppNutritionalInfo = () => {
         const [text, setText] = useState("");
         const [isPopupVisible, setPopupVisible] = useState(false);
         const popupRef = useRef<HTMLDivElement | null>(null);
         const [singleIngredientData, setSingleIngredientDataData] = useState<any>(null);
+        const [openSnackbar, setOpenSnackbar] = useState(false);
+        const [snackbarMessage, setSnackbarMessage] = useState('');
 
+        const handleSnackbarClose = () => {
+            setOpenSnackbar(false);
+        };
         const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
             setText(event.target.value);
         };
 
         const onAnalyseButtonClick = async () => {
             try {
+                // Trim the text to remove any leading or trailing whitespace
+                const trimmedText = text.trim();
+
+                // Check if the text is empty after trimming
+                if (!trimmedText) {
+                    setSnackbarMessage('Please enter some ingredients before analyzing.');
+                    setOpenSnackbar(true);
+                    return; // Exit the function early
+                }
+
                 const api = new NutritionalAPI()
-                const result = await api.fetchIndividualNutritionalInfo(text);
+                 // Assuming `text` is a string with the list of ingredients
+                const ingredientsArray = text.split('\n').filter(ingredient => ingredient.trim() !== ""); // Convert the text into an array of ingredients
+
+
+                // If no valid ingredients are found, block the operation
+                if (ingredientsArray.length === 0) {
+                    setSnackbarMessage('Please enter some valid ingredients before analyzing.');
+                    setOpenSnackbar(true);
+                    return; // Exit the function early
+                }
+                const result = await api.fetchRecipeNutritionalInfo({ ingr: ingredientsArray });
                 setSingleIngredientDataData(result)
                 setPopupVisible(true);
                 console.log(result.totalNutrientsKCal)
@@ -57,7 +83,6 @@ import '../assets/styles/NutrionalInfo.css'
                         <AppTextAreaBox
                             value={text}
                             onChange={handleTextChange}
-
                             readOnly={isPopupVisible}
                             rows={10} // Adjust rows as needed
                             cols={30}

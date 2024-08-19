@@ -22,7 +22,8 @@ class NutritionalAPI {
         const app_id = '913c651f';
         const app_key = 'b52e67e1ea5f45ea99631e96de56b134';
         const url = `https://api.edamam.com/api/nutrition-details?app_id=${app_id}&app_key=${app_key}`;
-
+        console.log("hello rez")
+        console.log(JSON.stringify(data));
         try {
             const response = await fetch(url, {
                 method: 'POST',
