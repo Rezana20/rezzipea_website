@@ -6,7 +6,7 @@ const About = () => {
 
         return (
             <div>
-                <AppAboutMe />
+                <AppAboutMe/>
             </div>
         );
 };

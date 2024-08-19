@@ -1,0 +1,16 @@
+.iframe-container {
+    width: 1000px; /* Match the iframe's width */
+    height: 970px; /* Subtract 30px from the iframe's height */
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+
+.juicer-iframe {
+    display: block;
+    width: 1000px;
+    height: 1000px;
+    border: none;
+    position: relative;
+    top: -30px; /* Move the iframe content up by 30px */
+}

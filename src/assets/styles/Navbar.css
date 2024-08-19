@@ -1,0 +1,41 @@
+/* AppBar.css */
+
+.app-bar {
+    background-color: #f5f5f5; /* Light background for a modern look */
+    box-shadow: none;          /* Remove the default shadow */
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between; /* Space the elements on the left and right */
+    padding: 0 16px;                /* Adjust padding if needed */
+    position: relative;
+}
+
+.home-button {
+    padding: 0;                     /* Remove padding around the home icon */
+}
+
+.home-icon {
+    width: 40px;                    /* Set the size of the home icon */
+    height: 40px;
+}
+
+.menu-buttons {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;                      /* Space between the menu buttons */
+}
+
+.menu-button {
+    text-transform: none;           /* Keep text in original case */
+    font-weight: bold;              /* Make the button text bold */
+    color: #333;                    /* Set text color */
+    font-size: 16px;                /* Adjust font size if needed */
+}
+
+.spacer {
+    flex-grow: 1; /* Allows the home button to align to the left while centering the menu buttons */
+}

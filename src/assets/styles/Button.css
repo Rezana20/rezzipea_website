@@ -3,7 +3,6 @@
     color: #FFFFFF !important; /* Mediterranean Blue text color */
     text-align: center; /* Center align text */
     justify-content: center; /* Center align the content inside the button */
-
     border-radius: 8px; /* Slightly rounded corners */
     border: 2px solid #FFD166; /* Mediterranean Blue border */
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
