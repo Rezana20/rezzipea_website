@@ -54,10 +54,12 @@
 
 .nutrient-label {
     color: #1D3557; /* Mediterranean Blue */
-    font-weight: bold;
+    /*font-weight: bold;*/
+    font-size: 0.8em;
 }
 
 .nutrient-quantity {
     color: #457B9D; /* Lighter Blue for quantity */
     text-align: right;
+    font-size: 0.8em;
 }
