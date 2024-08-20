@@ -8,7 +8,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import './assets/styles/Quote.css';
 import './assets/styles/Footer.css';
 import About from "./pages/About";
-import MyKitchen from "./pages/MyKitchen";
+import OurKitchen from "./pages/OurKitchen";
 const theme = createTheme({
     palette: {
         primary: {
@@ -43,7 +43,7 @@ function App() {
                 <div>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/my-kitchen" element={<MyKitchen/>}/>
+                        <Route path="/our-kitchen" element={<OurKitchen/>}/>
                         <Route path="/about" element={<About/>}/>
                     </Routes>
                 </div>

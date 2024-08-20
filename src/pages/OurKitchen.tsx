@@ -1,7 +1,7 @@
 import React from "react";
-import '../assets/styles/MyKitchen.css';
+import '../assets/styles/OurKitchen.css';
 
-const MyKitchen = () => {
+const OurKitchen = () => {
     return (
         <div className="iframe-container">
             <iframe src="https://www.juicer.io/api/feeds/rezzipeas/iframe" frameBorder="0"
@@ -11,4 +11,4 @@ const MyKitchen = () => {
     );
 
 };
-export default MyKitchen
+export default OurKitchen

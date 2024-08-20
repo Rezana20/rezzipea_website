@@ -11,8 +11,8 @@ function AppNavBar() {
                     <img src="/lemon.ico" alt="Home" className="home-icon" />
                 </IconButton>
                 <div className="menu-buttons">
-                    <Button color="inherit" component={Link} to="/my-kitchen" className="menu-button">
-                        My Kitchen
+                    <Button color="inherit" component={Link} to="/our-kitchen" className="menu-button">
+                        Our Kitchen
                     </Button>
                     <Button color="inherit" component={Link} to="/about" className="menu-button">
                         About
