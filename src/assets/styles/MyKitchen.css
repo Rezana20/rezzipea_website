@@ -20,7 +20,8 @@
     .iframe-container,
     .juicer-iframe {
         width: 100%; /* Make the iframe container and iframe take up full width of the screen */
-        height: auto; /* Auto height so it scales properly with the width */
+        height: auto; /* Allow the height to adjust automatically */
+        min-height: 1000px; /* Set a minimum height to ensure content is visible */
     }
 
     .juicer-iframe {
