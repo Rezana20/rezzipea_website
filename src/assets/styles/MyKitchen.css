@@ -14,3 +14,16 @@
     position: relative;
     top: -30px; /* Move the iframe content up by 30px */
 }
+
+/* Responsive adjustments for phones and smaller screens */
+@media screen and (max-width: 768px) {
+    .iframe-container,
+    .juicer-iframe {
+        width: 100%; /* Make the iframe container and iframe take up full width of the screen */
+        height: auto; /* Auto height so it scales properly with the width */
+    }
+
+    .juicer-iframe {
+        top: 0; /* Remove the negative top position to avoid clipping content */
+    }
+}
