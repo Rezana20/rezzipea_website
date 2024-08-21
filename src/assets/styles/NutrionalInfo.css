@@ -8,6 +8,7 @@
     text-align: center;
 }
 
+
 .nutritional-parent {
     padding-bottom: 10px;
 }
@@ -50,16 +51,22 @@
     justify-content: space-between; /* Distribute items evenly with space between */
     padding: 5px 0; /* Optional padding for spacing */
     border-bottom: 1px solid #ccc; /* Optional separator */
+    text-align: left; /* Ensure left alignment */
 }
 
 .nutrient-label {
     color: #1D3557; /* Mediterranean Blue */
-    /*font-weight: bold;*/
     font-size: 0.8em;
+    text-align: left; /* Ensure left alignment */
+    flex: 1; /* Allow the label to take up available space */
 }
 
 .nutrient-quantity {
     color: #457B9D; /* Lighter Blue for quantity */
     text-align: right;
     font-size: 0.8em;
+    flex-shrink: 0; /* Prevent quantity from shrinking */
+    margin-left: 10px; /* Add some space between label and quantity */
 }
+
+

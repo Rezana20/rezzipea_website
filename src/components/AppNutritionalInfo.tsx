@@ -2,19 +2,23 @@ import React, { useState, useRef, useEffect } from "react";
 import AppTextAreaBox from "../components/AppTextAreaBox";
 import AppButton from "../components/AppButton";
 import '../assets/styles/Home.css';
-import {Stack} from "@mui/material";
+import {Stack,IconButton} from "@mui/material";
+import DownloadIcon from '@mui/icons-material/Download'; // Importing the download icon from Material-UI
 import NutritionalAPI from "../services/NutritionalAPI";
 import AppNutritionalBox from "../components/AppNutritionalBox";
 import '../assets/styles/NutrionalInfo.css'
 import { Snackbar, Alert } from '@mui/material';
+import html2canvas from "html2canvas";
+import {paddingLeft} from "html2canvas/dist/types/css/property-descriptors/padding";
    const AppNutritionalInfo = () => {
         const [text, setText] = useState("");
         const [isPopupVisible, setPopupVisible] = useState(false);
         const popupRef = useRef<HTMLDivElement | null>(null);
-        const [singleIngredientData, setSingleIngredientDataData] = useState<any>(null);
+        const [ingredientData, setIngredientData] = useState<any>(null);
         const [openSnackbar, setOpenSnackbar] = useState(false);
         const [snackbarMessage, setSnackbarMessage] = useState('');
-
+        const [showPre, setShowPre] = useState(false); // State to toggle between textarea and pre
+        const [showWatermark, setShowWatermark] = useState(false);
         const handleSnackbarClose = () => {
             setOpenSnackbar(false);
         };
@@ -46,7 +50,7 @@ import { Snackbar, Alert } from '@mui/material';
                     return; // Exit the function early
                 }
                 const result = await api.fetchRecipeNutritionalInfo({ ingr: ingredientsArray });
-                setSingleIngredientDataData(result)
+                setIngredientData(result)
                 setPopupVisible(true);
                 console.log(result.totalNutrientsKCal)
                 console.log(result)
@@ -63,6 +67,43 @@ import { Snackbar, Alert } from '@mui/material';
         //     setText("");
         //     setPopupVisible(false);
         // };
+        const handleDownloadImage = () => {
+            const wrapper = document.querySelector('.capture-wrapper') as HTMLElement;
+            const buttons = document.querySelector('.buttons-stack') as HTMLElement;
+            // Show the watermark before capturing the image
+            setShowWatermark(true);
+            // Hide the buttons temporarily
+            if (buttons) {
+                // Hide the buttons temporarily
+                buttons.style.visibility = 'hidden';
+            }
+
+            // Temporarily increase the width of the wrapper
+            const originalWidth = wrapper.style.width;
+            wrapper.style.width = '650px';  // Adjust to your desired width
+            buttons.style.display = 'flex';  // Restore the buttons' visibility
+            setShowPre(true);  // Show the preformatted text instead of the textarea
+
+            setTimeout(() => {
+                html2canvas(wrapper).then((canvas) => {
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = 'rezzipeas-nutritional-info.png';
+                    link.click();
+
+                    // Revert the visibility after capture
+                    if (buttons) {
+                        buttons.style.visibility = 'visible';
+                    }
+
+                    // Revert the width after capture
+                    wrapper.style.width = originalWidth;
+                    // Hide the watermark after capturing the image
+                    setShowWatermark(false);
+                    setShowPre(false);  // Revert to showing the textarea after the download
+                });
+            }, 100); // Give time for the DOM to update
+        };
 
         useEffect(() => {
             if (isPopupVisible && popupRef.current) {
@@ -87,16 +128,32 @@ import { Snackbar, Alert } from '@mui/material';
                 <div className="container">
                     <p>Ready to evaluate your recipe? Just type in your ingredients, like '1 cup rice, 100g chickpeas.' Make sure to list each one on a separate line.</p>
                 </div>
-                <div className="container">
+                <div className="container capture-wrapper">
                     <div className={`content ${isPopupVisible ? 'half-width' : 'full-width'}`}>
+                        {/*<AppTextAreaBox*/}
+                        {/*    value={text}*/}
+                        {/*    onChange={handleTextChange}*/}
+                        {/*    readOnly={isPopupVisible}*/}
+                        {/*    rows={10} // Adjust rows as needed*/}
+                        {/*    cols={30}*/}
+
+                        {/*/>*/}
+                        {/* Conditionally render textarea or pre */}
+                    {!showPre ? (
                         <AppTextAreaBox
                             value={text}
                             onChange={handleTextChange}
                             readOnly={isPopupVisible}
-                            rows={10} // Adjust rows as needed
+                            rows={10}
                             cols={30}
-
                         />
+                    ) : (
+                        <div className="text-area-pre-wrap">
+                            {text.split(',').map((line, index) => (
+                                <p key={index}>{line}</p>
+                            ))}
+                        </div>
+                    )}
                         <Stack sx={{alignItems: "center"}}>
                            {!isPopupVisible && (
                             <AppButton label="ANALYSE" onClick={onAnalyseButtonClick}/>
@@ -107,15 +164,29 @@ import { Snackbar, Alert } from '@mui/material';
                     {isPopupVisible && (
                             <div className="content half-width" ref={popupRef}>
                                 <div className="nutritional-parent">
-                                   <AppNutritionalBox data={singleIngredientData}/>
+                                   <AppNutritionalBox data={ingredientData}/>
                                     <p className="approximation-guidelines"> *Approximation guidelines</p>
                                 </div>
-
-                                <Stack sx={{alignItems: "center"}} >
+                                {/* Watermark <p> element */}
+                                {showWatermark && (
+                                    <p className="watermark-text">
+                                        Created with Rezzipeas, visit www.rezzipeas.co.uk
+                                    </p>
+                                )}
+                                <div className="container buttons-stack"> {/* Add a class or ID to target */}
+                                <Stack direction="row" >
                                     <AppButton onClick={closePopup} label="UPDATE"/>
                                     {/*<AppButton onClick={newRecipe} label="CLEAR"/>*/}
+                                    <IconButton
+                                        onClick={handleDownloadImage}
+                                        sx={{bottom: 0, right: 0 }}
+                                        aria-label="download"
+                                    >
+                                        <DownloadIcon />
+                                    </IconButton>
                                 </Stack>
-                        </div>
+                                </div>
+                            </div>
                     )}
                 </div>
             </div>

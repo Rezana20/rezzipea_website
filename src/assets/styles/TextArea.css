@@ -1,0 +1,13 @@
+.text-area-pre-wrap {
+    white-space: pre-wrap;       /* Preserve whitespace and line breaks */
+    word-wrap: break-word;       /* Ensure long words wrap to the next line */
+    overflow-wrap: break-word;   /* Handle overflow of text properly */
+    width: 100%;                 /* Ensure full width of the parent container */
+    border: 1px solid #ccc;      /* Add a light border around the textarea */
+    border-radius: 4px;          /* Optional: Add slight rounding to the corners */
+    padding: 8px;                /* Add some padding for better text appearance */
+    resize: none;                /* Disable resizing of the textarea */
+    box-sizing: border-box;      /* Ensure padding and border are included in the element's width */
+    font-family: inherit;        /* Ensure the font matches the surrounding text */
+    font-size: inherit;          /* Inherit the font size */
+}

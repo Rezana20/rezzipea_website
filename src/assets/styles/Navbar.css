@@ -39,3 +39,28 @@
 .spacer {
     flex-grow: 1; /* Allows the home button to align to the left while centering the menu buttons */
 }
+
+/* Navbar.css */
+
+/* Show the desktop menu on larger screens */
+.desktop-menu {
+    display: flex;
+}
+
+/* Hide the mobile menu icon on larger screens */
+.mobile-menu-icon {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    /* Hide the desktop menu on smaller screens */
+    .desktop-menu {
+        display: none;
+    }
+
+    /* Show the mobile menu icon on smaller screens */
+    .mobile-menu-icon {
+        display: block;
+    }
+}

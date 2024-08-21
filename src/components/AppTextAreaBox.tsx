@@ -1,4 +1,5 @@
 import React from 'react';
+import '../assets/styles/TextArea.css'
 
 interface AppTextAreaBoxProps {
     rows?: number;
@@ -19,6 +20,7 @@ function AppTextAreaBox({readOnly, value, onChange, placeholder, rows = 5, cols 
             rows={rows}
             cols={cols}
             readOnly={readOnly}
+            className="text-area-pre-wrap"
         />
     );
 }
